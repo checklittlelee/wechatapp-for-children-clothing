@@ -1,0 +1,36 @@
+<!--components/goods-pop/index.wxml-->
+<van-popup
+  show="{{ skuCurGoodsShow }}"
+  position="bottom"
+  round
+  custom-style="padding-top:32rpx"
+  bind:close="closeSku"
+>
+  <!-- 上方 卡片显示商品图片、名称、价格 -->
+  <van-card
+    centered
+    price="{{ selectSizePrice }}"
+    title="{{ selectSizeTitle }}"
+    thumb="{{ skuGoodsPic }}"
+  />
+  <!-- 中间 sku的选择：两层遍历、购买数量 -->
+  <view class="sku-container">
+    <view class="sku" wx:for="{{skuCurGoods.properties}}" wx:key="id" wx:for-index="idx">
+      <!-- 名：网络类型、新订单提示、切纸方式 -->
+      <view class="t">{{item.name}}</view>
+      <!-- 选项：网络类型下面分 WIFT和4G -->
+      <view class="items">
+        <text class="{{innerItem.active? 'active' : ''}}" wx:for="{{item.childsCurGoods}}" wx:for-item="innerItem" wx:key="id" hidden="{{ innerItem.hidden }}" data-propertyindex="{{idx}}" data-propertychildindex="{{index}}" bindtap="skuSelect">{{innerItem.name}}</text>
+      </view>
+    </view>
+    <!-- 数量 -->
+    <view class="num">
+      <view class="t">购买数量</view>
+      <van-stepper value="{{ skuCurGoods.basicInfo.storesBuy }}" bind:plus="storesJia" bind:minus="storesJian" />
+    </view>
+  </view>
+  <!-- 下方 加入购物车按钮 -->
+  <view class="btn">
+    <van-button type="danger" block round bindtap="addCarSku">加入购物车</van-button>
+  </view>
+</van-popup>

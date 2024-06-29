@@ -1,0 +1,43 @@
+<!--pages/category/category.wxml-->
+<!-- 顶部搜索框 -->
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" use-right-icon-slot>
+  <van-icon name="scan" slot="right-icon" bindtap="searchScan" />
+</van-search>
+<view class="main">
+  <!-- 左侧商品分类 -->
+  <scroll-view scroll-y class="category-container">
+    <van-sidebar custom-class="sidebar-l" active-key="{{ activeCategory }}">
+      <van-sidebar-item wx:if="{{item.level == 1}}" id="category{{item.id}}" wx:for="{{firstCategories}}" wx:key="id" data-idx="{{index}}" bindtap="onCategoryClick" title="{{ item.name }}" />
+    </van-sidebar>
+  </scroll-view>
+  <!-- 右侧商品列表展示 -->
+  <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}" bindscrolltolower="goodsGoBottom">
+    <van-empty wx:if="{{categoryMod != 2 &&  !currentGoods}}" description="暂无商品" />
+    <!-- 显示商品 -->
+    <wxs module="goodsDetailPage">
+    module.exports = {
+      url : function(item) {
+        if (item.supplyType == 'vop_jd') {
+          return '/pages/goods-details/vop?id=' + item.yyId + '&goodsId=' + item.id
+        } else {
+          return '/pages/goods-details/index?id=' + item.id
+        }
+      }
+    }
+    </wxs>
+    <van-card
+      wx:for="{{currentGoods}}" wx:key="id"
+      price="{{item.minPrice}}"
+      title="{{item.name}}"
+      thumb="{{item.pic}}"
+      thumb-link="{{ goodsDetailPage.url(item) }}"
+    >
+      <view class="goods-btn" slot="footer">
+        <van-icon wx:if="{{ item.propertyIds || item.hasAddition }}" name="add" color="#e64340" size="48rpx" data-id="{{item.id}}" bindtap="addShopCar" />
+        <van-icon wx:else name="shopping-cart-o" color="#e64340" size="48rpx" data-id="{{item.id}}" bindtap="addShopCar" />
+      </view>
+    </van-card>
+  </scroll-view>
+</view>
+<!-- 已经全局引入这个组件了，直接使用 -->
+<goods-pop skuCurGoodsBaseInfo="{{ skuCurGoods }}" />

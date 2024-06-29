@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/index",
+    "pages/category/category",
+    "pages/coupons/index",
+    "pages/shop-cart/index",
+    "pages/goods-details/index",
+    "pages/goods-details/vop"
+  ],
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseAddress",
+    "chooseLocation"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/nav/home-off.png",
+        "selectedIconPath": "./images/nav/home-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "./images/nav/fl-off.png",
+        "selectedIconPath": "./images/nav/fl-on.png"
+      },
+      {
+        "pagePath": "pages/coupons/index",
+        "text": "优惠券",
+        "iconPath": "./images/nav/coupon-off.png",
+        "selectedIconPath": "./images/nav/coupon-on.png"
+      },
+      {
+        "pagePath": "pages/shop-cart/index",
+        "text": "购物车",
+        "iconPath": "./images/nav/cart-off.png",
+        "selectedIconPath": "./images/nav/cart-on.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "./images/nav/my-off.png",
+        "selectedIconPath": "./images/nav/my-on.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取离你最近的门店"
+    }
+  },
+  "usingComponents": {
+    "goods-pop": "/components/goods-pop/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-stepper": "@vant/weapp/stepper/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

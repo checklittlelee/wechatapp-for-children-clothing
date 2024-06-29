@@ -1,0 +1,9 @@
+<!--pages/my/my.wxml-->
+<view>
+  <button bindtap="login">微信一键授权</button>
+  <button bindgetuserinfo="getUserInfo">获取用户信息</button>
+  <view wx:if="{{avatarUrl && userName}}">
+    <view>{{userName}}</view>
+    <image src="{{avatarUrl}}" mode=""/>
+  </view>
+</view>
