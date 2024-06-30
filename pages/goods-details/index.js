@@ -88,7 +88,7 @@ Page({
     })
     this.readConfigVal()
     this.getGoodsDetailAndKanjieInfo(this.data.goodsId)
-    this.shippingCartInfo()
+    this.shoppingCartInfo()
   },
   readConfigVal() {
     // 读取系统参数
@@ -128,7 +128,7 @@ Page({
       tabs
     })
   },
-  async shippingCartInfo() {
+  async shoppingCartInfo() {
     const number = await TOOLS.showTabBarBadge(true)
     this.setData({
       shopNum: number
@@ -400,7 +400,7 @@ Page({
         title: '加入购物车',
         icon: 'success'
       })
-      this.shippingCartInfo()
+      this.shoppingCartInfo()
     }
   },
   /**

@@ -1,2 +1,8 @@
 <!--pages/shop-cart/index.wxml-->
-<text>pages/shop-cart/index.wxml</text>
+<import src="../template-cart/template-cart" />
+
+<!-- 判断展示缺损页面还是购物车商品页面 -->
+<view class="container">
+  <template is="{{shoppingCarInfo.items.length > 0 ? 'cart-goods-list' : 'no-goods'}}"
+  data="{{...shoppingCarInfo, shopCarType}}"></template>
+</view>

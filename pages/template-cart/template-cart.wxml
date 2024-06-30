@@ -1,0 +1,57 @@
+<!-- 购物车模板 -->
+<!-- 缺损页面：购物车空空如也~ -->
+<template name="no-goods">
+  <van-empty description="购物车空空如也～" image="https://file.winwebedu.com/mall/defect.png">
+    <van-button round type="danger" size="small" class="bottom-button" bind:click="toIndexPage">
+      去逛逛
+    </van-button>
+  </van-empty>
+</template>
+
+<!-- 购物车商品页面 -->
+<template name="cart-goods-list">
+  <view class="goodsList">
+    <view class="a-gooods" wx:for="{{items}}" wx:key="key">
+      <!-- 拖拽的实现 -->
+      <view class="a-goods-conts {{item.active? 'active':''}}" bindtouchstart="touchS" bindtouchmove="touchM"
+        bindtouchend="touchE" data-index="{{index}}" style="{{item.left}}">
+        <!-- 每行商品 -->
+        <view class="goods-info">
+          <view class="radio-box">
+            <radio checked="{{ item.selected }}" bindtap="radioClick" data-index="{{index}}" />
+          </view>
+          <view class="img-box">
+            <image mode="aspectFill" src="{{item.pic}}" class="img" />
+          </view>
+          <!-- 商品名称、SKU规格、价格、数量加减 -->
+          <view class="text-box">
+            <view class="goods-title">{{item.name}}</view>
+            <view wx:show="{{item.skuName}}" class="goods-label">
+              {{item.skuName}}
+            </view>
+            <view class="goods-price">¥ {{item.price}}</view>
+            <view class="buy-num">
+              <view class="jian-btn" catchtap="jianBtnTap" data-index="{{index}}">-</view>
+              <input type="number" value="{{item.number}}" data-key="{{item.key}}" bindinput="changeCarNumber" />
+              <view class="jia-btn" catchtap="jiaBtnTap"
+                data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </view>
+        <!-- 删除 -->
+        <view class="delete-btn" data-key="{{item.pid}}" catchtap="delItem">
+          删除
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 结算 -->
+  <view class="jiesuan-box">
+    <view class="left-price">
+      <view class="total">合计：¥ {{price}}</view>
+    </view>
+    <view class="to-pay-btn">
+      <navigator url="/pages/to-pay-order/index?shopCarType={{shopCarType}}">去结算</navigator>
+    </view>
+  </view>
+</template>

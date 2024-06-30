@@ -59,7 +59,6 @@ Component({
       const skuCurGoods = skuCurGoodsRes.data
       // 添加购买数量字段，赋值为1
       skuCurGoods.basicInfo.storesBuy = 1
-      console.log(skuCurGoods, 'skuCurGoods')
       // 处理可选配件
       this.setData({
         skuCurGoods,
@@ -103,7 +102,6 @@ Component({
       // 当前位置往下的所有sku取消选中状态
       for (let index = propertyindex; index < skuCurGoods.properties.length; index++) {
         const element = skuCurGoods.properties[index]
-        console.log('element.childsCurGoods', element.childsCurGoods)
         element.childsCurGoods.forEach(child => {
           child.active = false
         })
@@ -131,7 +129,8 @@ Component({
         skuGoodsPic
       })
     },
-    async addCarSku(){
+    // 加入购物车
+    async addCarSku() {
       // 校验是否有未选中的sku
       if (!this.checkSkuSelect(this.data.skuCurGoods)) {
           wx.showToast({
@@ -146,13 +145,12 @@ Component({
         icon: 'success'
       })
       wx.showTabBar()
-      TOOLS.showTabBarBadge() // 获取购物车数据，显示TabBarBadge
       this.setData({
         skuCurGoodsShow: false
       })
+      TOOLS.showTabBarBadge() // 获取购物车数据，显示TabBarBadge
     },
     checkSkuSelect(product) {
-      console.log(product, 'product')
       if (product.properties && product.properties.length) {
         // 记录每次的结果
         const checkResult = []
@@ -167,10 +165,10 @@ Component({
         if (checkResult.length === 0) {
           return false
         } else {
+          // 如果checkResult里有false，校验最后的结果就是不通过
           return !checkResult.filter(el => !el).length
         }
       }
-      return flag
     }
   }
 })

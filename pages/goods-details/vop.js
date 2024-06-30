@@ -92,7 +92,7 @@ Page({
     this.getGoodsDetailAndKanjieInfo(this.data.goodsId)
     this.skuImages(this.data.goodsId)
   },
-  async initShippingAddress() {
+  async initShoppingAddress() {
     const res = await WXAPI.defaultAddress(wx.getStorageSync('token'))
     if (res.code == 0) {
       this.setData({
@@ -110,7 +110,7 @@ Page({
       url: "/pages/select-address/index"
     })
   },
-  async shippingCartInfo(){
+  async shoppingCartInfo(){
     const number = await TOOLS.showTabBarBadge(true)
     this.setData({
       shopNum: number
@@ -151,8 +151,8 @@ Page({
           wxlogin: isLogined
         })
         this.goodsFavCheck()
-        this.shippingCartInfo()
-        this.initShippingAddress()
+        this.shoppingCartInfo()
+        this.initShoppingAddress()
       }
     })
   },
@@ -483,7 +483,7 @@ Page({
       title: '加入购物车',
       icon: 'success'
     })
-    this.shippingCartInfo()
+    this.shoppingCartInfo()
   },
   /**
    * 立即购买

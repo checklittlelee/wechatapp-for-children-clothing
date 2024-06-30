@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/shop-cart/index",
+          "pathName": "pages/shop-cart/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/category/category",
           "pathName": "pages/category/category",
           "query": "",
@@ -25,5 +32,5 @@
       ]
     }
   },
-  "libVersion": "3.4.7"
+  "libVersion": "3.4.8"
 }

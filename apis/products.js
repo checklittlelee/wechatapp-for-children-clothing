@@ -44,7 +44,27 @@ export function addGoods (data) {
 export function getGoodDetail(id) {
   return request.get(`/getGoodDetail?id=${id}`)
 }
-
+// 点击加入购物车
+export function goodSelectSku(data) {
+  return request.post('/shopping-cart/goodSelectSku', data)
+}
+// 当前购物车商品数量
 export function selectGoods() {
   return request.get('/shopping-cart/selectGoods')
+}
+// 购物车页面 购物车内商品信息
+export function goodsInfo () {
+  return request.get('/shopping-cart/info')
+}
+// 购物车页面，商品数量加减
+export function modifyNumber (data) {
+  return request.post('/shopping-cart/modifyNumber', data)
+}
+// 购物车中点击radio选中商品
+export function goodSelect (data) {
+  return request.post('/shopping-cart/goodSelect', data)
+}
+// 购物车中删除商品
+export function delGoods (data) {
+  return request.post('/shopping-cart/delGoods', data)
 }
