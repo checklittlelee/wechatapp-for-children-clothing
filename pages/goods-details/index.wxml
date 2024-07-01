@@ -1,9 +1,10 @@
 <!--pages/goods-details/index.wxml-->
+<!-- 商品详情 -->
 <view class="container">
   <van-sticky wx:if="{{createTabs}}">
     <view id="tabs" class="tabs-container">
       <van-tabs sticky bindtap="onTabsChange" custom-class="" active="{{ active }}">
-        <van-tab wx:for="{{tabs}}" title="{{item.tabs_name}}" name="{{item.tabs_name}}"/>
+        <van-tab wx:for="{{tabs}}" wx:key="id" title="{{item.tabs_name}}" name="{{item.tabs_name}}"/>
       </van-tabs>
     </view>
   </van-sticky>
@@ -149,6 +150,7 @@
   </van-goods-action>
 </view>
 
+<!-- 海报 -->
 <block wx:if="{{posterShow}}">
   <view class="poster-mask"></view>
   <view class="poster">

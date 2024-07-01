@@ -65,7 +65,24 @@ async function authorize () {
   })
 }
 
+// 
+async function bindSeller() {
+  const token = wx.getStorageSync('token')
+  const referrer = wx.getStorageSync('referrer')
+  if (!token) {
+    return
+  }
+  if (!referrer) {
+    return
+  }
+  const res = await WXAPI.bindSeller({
+    token,
+    uid: referrer
+  })
+}
+
 module.exports = {
   checkHasLogined,
-  authorize
+  authorize,
+  bindSeller
 }

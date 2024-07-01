@@ -9,6 +9,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/goods-details/index",
+          "pathName": "pages/goods-details/index",
+          "query": "id=810285",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/to-pay-order/index",
+          "pathName": "pages/to-pay-order/index",
+          "query": "shopCarType=",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/shop-cart/index",
           "pathName": "pages/shop-cart/index",
           "query": "",

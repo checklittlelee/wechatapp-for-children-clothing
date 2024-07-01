@@ -68,3 +68,15 @@ export function goodSelect (data) {
 export function delGoods (data) {
   return request.post('/shopping-cart/delGoods', data)
 }
+// 
+export function createOrder(data) {
+  return request.post('/createOrder', data)
+}
+// 商品详情中的商品评价
+export function reputation(goodsId) {
+  return request.get(`/reputation?goodsId=${goodsId}`)
+}
+// 
+export function createQRCode (data) {
+  return request.post('/createQRCode', data)
+}

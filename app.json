@@ -6,7 +6,8 @@
     "pages/coupons/index",
     "pages/shop-cart/index",
     "pages/goods-details/index",
-    "pages/goods-details/vop"
+    "pages/goods-details/vop",
+    "pages/to-pay-order/index"
   ],
   "requiredPrivateInfos": [
     "getLocation",
@@ -64,6 +65,7 @@
   },
   "usingComponents": {
     "goods-pop": "/components/goods-pop/index",
+    "mp-html": "mp-html",
     "van-button": "@vant/weapp/button/index",
     "van-sticky": "@vant/weapp/sticky/index",
     "van-notice-bar": "@vant/weapp/notice-bar/index",
@@ -76,7 +78,27 @@
     "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "van-empty": "@vant/weapp/empty/index",
     "van-popup": "@vant/weapp/popup/index",
-    "van-stepper": "@vant/weapp/stepper/index"
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-switch": "@vant/weapp/switch/index"
   },
   "sitemapLocation": "sitemap.json"
 }
